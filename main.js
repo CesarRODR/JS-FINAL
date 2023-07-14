@@ -5,33 +5,22 @@ let contDeProductos = document.getElementById("losproductos");
 let miCarrito = document.getElementById("carrito-contenedor");
 let btnFinalizar = document.getElementById("finalizar");
 let btnVaciar = document.getElementById("vaciar");
-const $submit = document.getElementById("sumbmit"),
-      $password = document.getElementById("password"),
-      $username = document.getElementById("username"),
-      $visible = document.getElementById("visible");
+
 const carrito = [];
 
 
-        //Formulario de login  
-      document.addEventListener("change", (e)=>{
-          if(e.target === $visible){
-            if($visible.Checked === false) $password.type = "password";
-            else $password.type = "text";
-          }
-      });
+//Formulario de login  
 
-      document.addEventListener("click", (e) =>{
-        if(e.target === $submit){
-            if($password.value !== "" && $username !== ""){
-                e.preventDefault();
-                
-            }
-        }
-         
-      });
-      
+ function checkData(){
+    let usuario = document.getElementById("username").value;
+    let pasword = document.getElementById("pass").value;
 
-
+//local storage formulario
+        localStorage.setItem("userName",usuario);
+        localStorage.setItem("userPass",pasword);
+    }
+     
+//Creando las cards       
 function brindarProductos(productos){
     for (const prod of productos){
         contDeProductos.innerHTML +=`
@@ -45,7 +34,7 @@ function brindarProductos(productos){
      </div> 
         `;
     }
-    //eventos
+//eventos
     let botones = document.getElementsByClassName("compra");
     for (const boton of botones) {
         boton.onclick = () =>{
@@ -69,7 +58,7 @@ function brindarProductos(productos){
             imageHeight: 200,
             imageAlt: producto.nombre,
           });
-    
+//Tabla del carrito         
         tablaCarrito.innerHTML += `     
             <table class="table">
                 <tbody>
@@ -85,42 +74,38 @@ function brindarProductos(productos){
             saveLocal();
 };
 
-let precioTotal=0;
+    let precioTotal=0;
     function totalActual(){
         const todoElTotal = document.getElementById("total");
         todoElTotal.innerHTML = "El precio total es: $" + precioTotal;
 };
-    //local storage para el carrito
+//local storage para el carrito
     const saveLocal = () =>{
        localStorage.setItem("carrito", JSON.stringify(carrito)); 
     }
 
-    //funcion eliminar elementos del carrito
-    function eliminar(dlt){
-        
+//funcion eliminar elementos del carrito
+    function eliminar(dlt){ 
         let fila = dlt.target.parentElement.parentElement;
-
         let id = fila.children[0].innerText
         let indice = carrito.findIndex(producto => producto.id == id);
         
-    //remueve el producto del carro
+//remueve el producto del carro
     carrito.splice(indice,1);
     
-    //remueve la fila de la tabla
+//remueve la fila de la tabla
     fila.remove();
     
-    
-    //recalcular el total
+//recalcular el total
     let preciosAcumulados = carrito.reduce((acumulador,producto)=>acumulador+producto.precio,0);
-    total.innerText="Total a pagar $: "+preciosAcumulados;
-    //agregar el calculo en pesos 
+    total.innerText="Total a pagar $: "+preciosAcumulados; 
 
-    //storage
+//storage
     localStorage.setItem("carro",JSON.stringify(carrito));
 
 }
     
- //JSON
+//JSON
  async function  obtenerJsonProductos(){
     const rutaJson = "/productos.json";
     const respuesta = await fetch(rutaJson);
@@ -129,7 +114,7 @@ let precioTotal=0;
     brindarProductos(productos);
  }
 
- //Dolar API
+//Dolar API
  function dolar(){
     const urlDolar = "https://api.bluelytics.com.ar/v2/latest";
     fetch(urlDolar)
@@ -143,7 +128,7 @@ let precioTotal=0;
 }
 dolar();
 
- 
+//Finalizar compra
 btnFinalizar.onclick=()=>{
     alCarro=[];
     document.getElementById("tablaCarrito").innerHTML="";
@@ -156,7 +141,7 @@ btnFinalizar.onclick=()=>{
     
     localStorage.removeItem("carrito");
 }
-
+//Vaciar carrito
 btnVaciar.onclick=()=>{
     alCarro=[];
     document.getElementById("tablaCarrito").innerHTML="";

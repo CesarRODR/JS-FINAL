@@ -3,7 +3,7 @@
         "nombre": "dvr",
         "imagen": "https://axa.com.ar/webaxa/28469/dvr-hikvision-8-canales-1080n-720p-deteccion-humana-y-vehiculos.jpg",
         "precio":65399.99,
-        "descripcion": "DVR 8ch de video 1ch de audio tecnologia 1080p lite"
+        "descripcion": "DVR 8 canales  de video 1ch de audio tecnologia 1080p lite"
     },
     {
         "id": 2,
@@ -17,14 +17,14 @@
         "nombre": "camara bullet",
         "imagen": "https://www.rosarioseguridad.com.ar/admin/productos/58a85d579621b14341073daf99ab1328.jpg",
         "precio":12400,
-        "descripcion": "Camara bullet exterior lente 3,6mm 1080p cuatrinorma"
+        "descripcion": "Camara bullet exterior lente 3,6mm 1080p cuatrinorma ip65"
     },
     {
         "id": 4,
         "nombre": "disco rigido 1TB",
         "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXL3wX7gAYj3oBzarZtHWZSpZj-JOMfPNbA&usqp=CAU",
         "precio":26450,
-        "descripcion": "Disco rigido purple 1Tb 5400rpm apto para nvr,dvr"
+        "descripcion": "Disco rigido purple vigilancia 1Tb 5400rpm apto para nvr,dvr"
     },
     {
         "id": 5,
@@ -45,13 +45,13 @@
         "nombre": "conector macho",
         "imagen": "https://www.cclink.cl/wp-content/uploads/2020/04/Conector-DC-Macho.png",
         "precio": 250,
-        "descripcion": "Conector macho de alimentacion con borneras para 12v"
+        "descripcion": "Conector macho de alimentacion con borneras apto para 12v"
     },
     {
         "id": 8,
         "nombre": "Fuente de alimentacion",
         "imagen": "https://http2.mlstatic.com/D_NQ_NP_772735-MLA47308429234_082021-O.webp",
         "precio": 5550,
-        "descripcion": "Fuente switch de alimentacion 12v 5A para cctv soporta hasta 5 camaras "
+        "descripcion": "Fuente switch de alimentacion 12v 5A para cctv, capacidad de hasta 5 camaras "
     } 
 ]
