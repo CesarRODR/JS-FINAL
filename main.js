@@ -24,7 +24,7 @@ const carrito = [];
 function brindarProductos(productos){
     for (const prod of productos){
         contDeProductos.innerHTML +=`
-     <div class="card col-sm-2 col-8 col-sm-3 text-center shadow-lg p-3 mb-5 bg-body rounded ">
+     <div class="border-black card col-sm-2 col-8 col-sm-3 text-center shadow-lg p-3 mb-5 bg-body rounded ">
         <img src= ${prod.imagen} alt="card img cap" class="img-fluid ">
         <div class="card-body">
             <h4 class="card-title ">${prod.nombre}</h4>
